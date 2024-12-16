@@ -1,5 +1,6 @@
 import json
-from nltk_util import tokenize,stem,bad_of_words
+import numpy as np
+from nltk_util import tokenize,stem,bag_of_words
 with open('intents.json') as file:
     intents = json.load(file)
     
@@ -25,8 +26,10 @@ x_train=[]
 y_train=[]
 
 for (pattern_sentence,tag) in xy:
-    bag=bad_of_words(pattern_sentence,all_words)
+    bag=bag_of_words(pattern_sentence,all_words)
     x_train.append(bag)
     
     label=tags.index(tag)
     y_train.append(label)
+x_train=np.array(x_train)
+y_train=np.array(y_train)
