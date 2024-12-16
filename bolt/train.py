@@ -93,3 +93,7 @@ data = {
 "all_words": all_words,
 "tags": tags
 }
+
+FILE='data.pth'
+torch.save(data, FILE)
+print(f'training complete. file saved to {FILE}')
